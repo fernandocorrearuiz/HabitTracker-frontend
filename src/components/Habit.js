@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { dayAddHabit } from "../store/habits/actions";
 import { daysResetHabit } from "../store/habits/actions";
+import { deleteMyHabit } from "../store/habits/actions";
 
 export default function Habit(props) {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ export default function Habit(props) {
 
   const dayResetHandler = () => {
     dispatch(daysResetHabit(props.id));
+  };
+
+  const habitDeleteHandler = () => {
+    dispatch(deleteMyHabit(props.id));
   };
 
   return (
@@ -29,6 +34,9 @@ export default function Habit(props) {
       </p>
       <p>
         <Button onClick={dayResetHandler}>No</Button>
+      </p>
+      <p>
+        <Button onClick={habitDeleteHandler}>Delete habit</Button>
       </p>
 
       <p>{"---"}</p>

@@ -4,6 +4,8 @@ import axios from "axios";
 export const FETCH_HABITS_SUCCESS = "FETCH_HABITS_SUCCESS";
 export const CONSECUTIVE_DAYS_UPDATED = "CONSECUTIVE_DAYS_UPDATED";
 export const CONSECUTIVE_DAYS_RESET_TO_ZERO = "CONSECUTIVE_DAYS_RESET_TO_ZERO";
+export const HABIT_DELETED_SUCCESS = "HABIT_DELETED_SUCCESS";
+export const HABIT_CREATED_SUCCESS = "HABIT_CREATED_SUCCESS";
 
 export const fetchHabitsSuccess = (habits) => ({
   type: FETCH_HABITS_SUCCESS,
@@ -18,6 +20,16 @@ export const dayAddedOnHabit = (habit) => ({
 export const daysResetToZeroOnHabit = (habit) => ({
   type: CONSECUTIVE_DAYS_RESET_TO_ZERO,
   payload: habit,
+});
+
+export const habitDeleteSuccess = (habitToDelete) => ({
+  type: HABIT_DELETED_SUCCESS,
+  payload: habitToDelete,
+});
+
+export const habitPostSuccess = (habitToPost) => ({
+  type: HABIT_CREATED_SUCCESS,
+  payload: habitToPost,
 });
 
 export const fetchHabits = () => {
@@ -35,9 +47,8 @@ export const fetchHabits = () => {
 export const dayAddHabit = (habitId) => {
   return async (dispatch, getState) => {
     const response = await axios.patch(`${apiUrl}/habits/${habitId}`);
-    console.log(response.data);
+    // console.log(response.data);
     dispatch(dayAddedOnHabit(response.data.habit));
-    // dispatch(fetchHabits());
   };
 };
 
@@ -46,7 +57,45 @@ export const daysResetHabit = (habitId) => {
     const response = await axios.patch(
       `${apiUrl}/habits/${habitId}/consecutiveDays`
     );
-    console.log(response.data);
+    // console.log(response.data);
     dispatch(daysResetToZeroOnHabit(response.data.habit));
+  };
+};
+
+export const deleteMyHabit = (habitId) => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/habits/${habitId}`);
+    console.log("Habit deleted?", response.data);
+    dispatch(habitDeleteSuccess(response.data.habit));
+  };
+};
+
+export const postMyNewHabit = (name) => {
+  return async (dispatch, getState) => {
+    // const { token, space } = selectUser(getState());
+
+    // console.log(space);
+    // dispatch(appLoading());
+
+    // if (space === null) {
+    //   console.log("This space does not exist");
+    // }
+
+    const response = await axios.post(
+      `${apiUrl}/habits/habit`,
+      { name }
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // }
+    );
+    // dispatch(
+    //   showMessageWithTimeout("success", false, response.data.message, 3000)
+    // );
+    // console.log("Yep!", response);
+    console.log("Yep!", response.data);
+    dispatch(habitPostSuccess(response.data.newHabit));
+    // dispatch(appDoneLoading());
   };
 };
