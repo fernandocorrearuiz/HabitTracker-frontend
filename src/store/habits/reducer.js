@@ -12,7 +12,7 @@ const initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_HABITS_SUCCESS:
-      return [...state, ...action.payload].sort((a, b) => {
+      return [...action.payload].sort((a, b) => {
         return a.id - b.id;
       });
 
