@@ -36,7 +36,7 @@ export const fetchHabits = () => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/habits`);
-      console.log(response.data);
+      // console.log(response.data);
       dispatch(fetchHabitsSuccess(response.data.habits));
     } catch (e) {
       console.log(e.message);
@@ -65,7 +65,7 @@ export const daysResetHabit = (habitId) => {
 export const deleteMyHabit = (habitId) => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/habits/${habitId}`);
-    console.log("Habit deleted?", response.data);
+    // console.log("Habit deleted?", response.data);
     dispatch(habitDeleteSuccess(response.data.habit));
   };
 };

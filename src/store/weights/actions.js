@@ -18,7 +18,7 @@ export const fetchWeights = () => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/weights`);
-      console.log(response.data);
+      // console.log(response.data);
       dispatch(fetchWeightsSuccess(response.data.weights));
     } catch (e) {
       console.log(e.message);
@@ -50,7 +50,7 @@ export const postMyNewWeight = (newKg) => {
     //   showMessageWithTimeout("success", false, response.data.message, 3000)
     // );
     // console.log("Yep!", response);
-    console.log("Yep!", response.data);
+    // console.log("Yep!", response.data);
     dispatch(weightPostSuccess(response.data.newWeight));
     // dispatch(appDoneLoading());
   };

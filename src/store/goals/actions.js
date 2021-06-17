@@ -24,7 +24,7 @@ export const fetchGoals = () => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/goals`);
-      console.log(response.data);
+      // console.log(response.data);
       dispatch(fetchGoalsSuccess(response.data.goals));
     } catch (e) {
       console.log(e.message);
@@ -35,7 +35,7 @@ export const fetchGoals = () => {
 export const deleteMyGoal = (goalId) => {
   return async (dispatch, getState) => {
     const response = await axios.delete(`${apiUrl}/goals/${goalId}`);
-    console.log("Goal deleted?", response.data);
+    // console.log("Goal deleted?", response.data);
     dispatch(goalDeleteSuccess(goalId));
   };
 };
@@ -64,7 +64,7 @@ export const postMyNewGoal = (title, objective, currentLevel) => {
     //   showMessageWithTimeout("success", false, response.data.message, 3000)
     // );
     // console.log("Yep!", response);
-    console.log("Yep!", response.data);
+    // console.log("Yep!", response.data);
     dispatch(goalPostSuccess(response.data.newGoal));
     // dispatch(appDoneLoading());
   };
