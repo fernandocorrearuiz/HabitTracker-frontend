@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import "./Yoga.css";
 import { Jumbotron } from "react-bootstrap";
 
 const Yoga = () => {
@@ -48,7 +49,7 @@ const Yoga = () => {
       <Jumbotron>
         <h1>Yoga</h1>
       </Jumbotron>
-      <h1>Here you can find Yoga!</h1>
+      <h1>Here you can do Yoga sessions!</h1>
 
       <div className="container">
         <div className="time">
