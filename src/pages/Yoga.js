@@ -51,7 +51,7 @@ const Yoga = () => {
       </Jumbotron>
       <h1>Here you can do Yoga sessions!</h1>
 
-      <div className="container">
+      <div className="container1">
         <div className="time">
           <span className="minute">{minute}</span>
           <span>:</span>

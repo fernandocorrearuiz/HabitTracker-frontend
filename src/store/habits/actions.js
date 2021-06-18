@@ -22,9 +22,9 @@ export const daysResetToZeroOnHabit = (habit) => ({
   payload: habit,
 });
 
-export const habitDeleteSuccess = (habitToDelete) => ({
+export const habitDeleteSuccess = (habitId) => ({
   type: HABIT_DELETED_SUCCESS,
-  payload: habitToDelete,
+  payload: habitId,
 });
 
 export const habitPostSuccess = (habitToPost) => ({
@@ -64,9 +64,9 @@ export const daysResetHabit = (habitId) => {
 
 export const deleteMyHabit = (habitId) => {
   return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/habits/${habitId}`);
+    const response = await axios.delete(`${apiUrl}/habits/${habitId}`);
     // console.log("Habit deleted?", response.data);
-    dispatch(habitDeleteSuccess(response.data.habit));
+    dispatch(habitDeleteSuccess(habitId));
   };
 };
 

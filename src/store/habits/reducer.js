@@ -39,15 +39,9 @@ export default (state = initialState, action) => {
       return sortedfilteredState;
 
     case HABIT_DELETED_SUCCESS:
-      const stateWithoutHabitToDelete = state.filter((habit) => {
-        return habit.id !== action.payload.id;
-      });
-      const sortedStateWithoutHabitToDelete = [
-        ...stateWithoutHabitToDelete,
-      ].sort((a, b) => {
-        return a.id - b.id;
-      });
-      return sortedStateWithoutHabitToDelete;
+      const habitId = action.payload;
+      const newHabits = state.filter((habit) => habit.id !== habitId);
+      return [...newHabits];
 
     case HABIT_CREATED_SUCCESS:
       return [...state, action.payload].sort((a, b) => {
