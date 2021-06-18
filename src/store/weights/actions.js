@@ -17,6 +17,13 @@ export const weightPostSuccess = (weightToPost) => ({
 export const fetchWeights = () => {
   return async (dispatch, getState) => {
     try {
+      // const offset = getState().weights.length;
+      // console.log(offset);
+      // const offset = 2;
+      // const response = await axios.get(
+      //   `${apiUrl}/weights?offset=${offset}&limit=5`
+      // );
+      // const response = await axios.get(`${apiUrl}/weights?offset=0&limit=5`);
       const response = await axios.get(`${apiUrl}/weights`);
       // console.log(response.data);
       dispatch(fetchWeightsSuccess(response.data.weights));

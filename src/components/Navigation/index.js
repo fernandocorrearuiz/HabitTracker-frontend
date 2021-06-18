@@ -15,17 +15,12 @@ export default function Navigation() {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={NavLink} to="/">
+      <Navbar.Brand as={NavLink} to="/login">
         HABIT TRACKER
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/my-habits" linkText="My Habits" />
-          <NavbarItem path="/my-weight" linkText="Weight Control" />
-          <NavbarItem path="/yoga" linkText="Yoga" />
-          <NavbarItem path="/my-goals" linkText="Goals" />
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

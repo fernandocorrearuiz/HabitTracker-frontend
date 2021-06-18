@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+// import { selectLatestWeight } from "../store/weights/selectors";
 import { postMyNewWeight } from "../store/weights/actions";
 
 const WeightInput = (props) => {
-  const [enteredKg, setEnteredKg] = useState("");
+  // const latestWeight = useSelector(selectLatestWeight);
+  // console.log(latestWeight);
+  const [enteredKg, setEnteredKg] = useState(80);
 
   const dispatch = useDispatch();
 
