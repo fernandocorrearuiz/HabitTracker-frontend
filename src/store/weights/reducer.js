@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_WEIGHTS_SUCCESS:
       return [...action.payload].sort((a, b) => {
-        return a.createAt - b.createAt;
+        return b.date - a.date;
       });
 
     case WEIGHT_CREATED_SUCCESS:

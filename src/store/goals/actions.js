@@ -1,5 +1,13 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage,
+} from "../appState/actions";
+
+import { selectUser } from "../user/selectors";
 
 export const FETCH_GOALS_SUCCESS = "FETCH_GOALS_SUCCESS";
 export const GOAL_DELETE_SUCCESS = "GOAL_DELETE_SUCCESS";
@@ -23,7 +31,12 @@ export const goalPostSuccess = (goalToPost) => ({
 export const fetchGoals = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/goals`);
+      const { token } = selectUser(getState());
+      const response = await axios.get(`${apiUrl}/goals`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       // console.log(response.data);
       dispatch(fetchGoalsSuccess(response.data.goals));
     } catch (e) {
@@ -42,30 +55,22 @@ export const deleteMyGoal = (goalId) => {
 
 export const postMyNewGoal = (title, objective, currentLevel) => {
   return async (dispatch, getState) => {
-    // const { token, space } = selectUser(getState());
-
-    // console.log(space);
-    // dispatch(appLoading());
-
-    // if (space === null) {
-    //   console.log("This space does not exist");
-    // }
-
+    const { token } = selectUser(getState());
+    dispatch(appLoading());
     const response = await axios.post(
       `${apiUrl}/goals/goal`,
-      { title, objective, currentLevel }
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // }
+      { title, objective, currentLevel },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
-    // dispatch(
-    //   showMessageWithTimeout("success", false, response.data.message, 3000)
-    // );
-    // console.log("Yep!", response);
+    dispatch(
+      showMessageWithTimeout("success", false, response.data.message, 3000)
+    );
     // console.log("Yep!", response.data);
     dispatch(goalPostSuccess(response.data.newGoal));
-    // dispatch(appDoneLoading());
+    dispatch(appDoneLoading());
   };
 };

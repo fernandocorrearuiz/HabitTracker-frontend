@@ -1,5 +1,13 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage,
+} from "../appState/actions";
+
+import { selectUser } from "../user/selectors";
 
 export const FETCH_HABITS_SUCCESS = "FETCH_HABITS_SUCCESS";
 export const CONSECUTIVE_DAYS_UPDATED = "CONSECUTIVE_DAYS_UPDATED";
@@ -35,7 +43,12 @@ export const habitPostSuccess = (habitToPost) => ({
 export const fetchHabits = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/habits`);
+      const { token } = selectUser(getState());
+      const response = await axios.get(`${apiUrl}/habits`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       // console.log(response.data);
       dispatch(fetchHabitsSuccess(response.data.habits));
     } catch (e) {
@@ -72,30 +85,22 @@ export const deleteMyHabit = (habitId) => {
 
 export const postMyNewHabit = (name) => {
   return async (dispatch, getState) => {
-    // const { token, space } = selectUser(getState());
-
-    // console.log(space);
-    // dispatch(appLoading());
-
-    // if (space === null) {
-    //   console.log("This space does not exist");
-    // }
-
+    const { token } = selectUser(getState());
+    dispatch(appLoading());
     const response = await axios.post(
       `${apiUrl}/habits/habit`,
-      { name }
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // }
+      { name },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
-    // dispatch(
-    //   showMessageWithTimeout("success", false, response.data.message, 3000)
-    // );
-    // console.log("Yep!", response);
+    dispatch(
+      showMessageWithTimeout("success", false, response.data.message, 3000)
+    );
     console.log("Yep!", response.data);
     dispatch(habitPostSuccess(response.data.newHabit));
-    // dispatch(appDoneLoading());
+    dispatch(appDoneLoading());
   };
 };

@@ -18,7 +18,7 @@ const WeightInput = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(postMyNewWeight(enteredKg));
-    setEnteredKg("");
+    setEnteredKg(80);
   };
 
   return (
