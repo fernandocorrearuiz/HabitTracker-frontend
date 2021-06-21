@@ -1,5 +1,14 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { dayAddHabit } from "../store/habits/actions";
@@ -23,23 +32,39 @@ export default function Habit(props) {
 
   return (
     <div>
-      <p>Habit #: {props.id}</p>
-      <p>Name: {props.name}</p>
-      <p>Consecutive Days: {props.consecutiveDays}</p>
-      <p>Did you comply with your Habit today?</p>
-      <p>
-        <Button onClick={dayAddHandler}>Yes</Button>
-        {"   "}
-        <Button onClick={dayAddHandler}>Cheat Day</Button>
-      </p>
-      <p>
-        <Button onClick={dayResetHandler}>No</Button>
-      </p>
-      <p>
-        <Button onClick={habitDeleteHandler}>Delete habit</Button>
-      </p>
+      <Container>
+        <Breadcrumb>
+          <Breadcrumb.Item>{props.name}</Breadcrumb.Item>
+          <Breadcrumb.Item>
+            Consecutive Days: {props.consecutiveDays}
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Button onClick={habitDeleteHandler}>Delete habit</Button>
+          </Breadcrumb.Item>
+        </Breadcrumb>
 
-      <p>{"---"}</p>
+        <img
+          src={
+            "https://www.pointloma.edu/sites/default/files/styles/basic_page/public/images/Fall2015_Habit-MakingHabit-Breaking.jpg?itok=RyEQ9yif"
+          }
+          alt={"main-pic"}
+          width={"50%"}
+        />
+
+        <Breadcrumb>
+          <Alert variant="primary">Did you comply with your Habit today?</Alert>
+        </Breadcrumb>
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <Button onClick={dayAddHandler}>Yes</Button>
+            {"   "}
+            <Button onClick={dayAddHandler}>Cheat Day</Button>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Button onClick={dayResetHandler}>No</Button>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </Container>
     </div>
   );
 }

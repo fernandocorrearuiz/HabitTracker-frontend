@@ -11,11 +11,11 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      <NavbarItem path="/" linkText="Home" />
+      {/* <NavbarItem path="/" linkText="Home" />
       <NavbarItem path="/my-habits" linkText="My Habits" />
       <NavbarItem path="/my-weight" linkText="Weight Control" />
       <NavbarItem path="/yoga" linkText="Yoga" />
-      <NavbarItem path="/my-goals" linkText="Goals" />
+      <NavbarItem path="/my-goals" linkText="Goals" /> */}
       <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item>
       <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>

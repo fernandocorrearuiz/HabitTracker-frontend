@@ -1,7 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Jumbotron } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 
 import { fetchWeights } from "../store/weights/actions";
 import { selectWeights } from "../store/weights/selectors";
@@ -17,26 +26,34 @@ const MyWeight = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url("https://get.pxhere.com/photo/food-balance-rest-stack-chocolate-baking-cookie-close-macaroon-dessert-zen-motivation-stones-relaxation-meditation-icing-still-sweetness-baked-goods-flavor-stone-pile-snack-food-cookies-and-crackers-645898.jpg")`,
+      }}
+    >
       <Jumbotron>
         <h1>My Weight</h1>
       </Jumbotron>
-      <WeightInput />
-      <h1>Here you can find your weight!</h1>
-      {weights
-        .sort((a, b) => {
-          return a.date - b.date;
-        })
-        .map((weight) => {
-          return (
-            <Weight
-              key={weight.id}
-              id={weight.id}
-              Kg={weight.Kg}
-              date={weight.date}
-            />
-          );
-        })}
+
+      <Container>
+        <WeightInput />
+
+        <Card>My latest Weight</Card>
+        {weights
+          .sort((a, b) => {
+            return a.date - b.date;
+          })
+          .map((weight) => {
+            return (
+              <Weight
+                key={weight.id}
+                id={weight.id}
+                Kg={weight.Kg}
+                date={weight.date}
+              />
+            );
+          })}
+      </Container>
     </div>
   );
 };

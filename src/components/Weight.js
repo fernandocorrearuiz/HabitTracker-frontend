@@ -1,15 +1,23 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 export default function Weight(props) {
   return (
     <div>
-      <p>Weight #: {props.id}</p>
-      <p>Kg: {props.Kg}</p>
-      <p>Date: {props.date}</p>
-
-      <p>{"---"}</p>
+      <Breadcrumb>
+        <Breadcrumb.Item>Kg: {props.Kg}</Breadcrumb.Item>
+        <Breadcrumb.Item>Date: {props.date}</Breadcrumb.Item>
+      </Breadcrumb>
     </div>
   );
 }

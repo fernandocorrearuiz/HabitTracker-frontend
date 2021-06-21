@@ -45,11 +45,14 @@ const Yoga = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url("https://get.pxhere.com/photo/food-balance-rest-stack-chocolate-baking-cookie-close-macaroon-dessert-zen-motivation-stones-relaxation-meditation-icing-still-sweetness-baked-goods-flavor-stone-pile-snack-food-cookies-and-crackers-645898.jpg")`,
+      }}
+    >
       <Jumbotron>
-        <h1>Yoga</h1>
+        <h1>Yoga Sessions</h1>
       </Jumbotron>
-      <h1>Here you can do Yoga sessions!</h1>
 
       <div className="container1">
         <div className="time">

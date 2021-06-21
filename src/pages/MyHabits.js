@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "react-bootstrap/Button";
-import { Jumbotron } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 
 import Habit from "../components/Habit";
 import HabitForm from "../components/HabitForm";
@@ -27,36 +35,49 @@ const MyHabits = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url("https://get.pxhere.com/photo/food-balance-rest-stack-chocolate-baking-cookie-close-macaroon-dessert-zen-motivation-stones-relaxation-meditation-icing-still-sweetness-baked-goods-flavor-stone-pile-snack-food-cookies-and-crackers-645898.jpg")`,
+      }}
+    >
       <Jumbotron>
         <h1>My Habits</h1>
       </Jumbotron>
-      <h1>Here you can find your habits!</h1>
-      <p>
-        {!isPosting && (
-          <Button onClick={habitPostingStartHandler}>Create a new Habit</Button>
-        )}
-        {isPosting && (
-          <HabitForm
-            onCancel={habitPostingStopHandler}
-            onHabitPosted={habitPostingStopHandler}
-          />
-        )}
-      </p>
-      {habits
-        .sort((a, b) => {
-          return a.id - b.id;
-        })
-        .map((habit) => {
-          return (
-            <Habit
-              key={habit.id}
-              id={habit.id}
-              name={habit.name}
-              consecutiveDays={habit.consecutiveDays}
+      <Container>
+        <p>
+          {!isPosting && (
+            <Button onClick={habitPostingStartHandler}>
+              Create a new Habit
+            </Button>
+          )}
+          {isPosting && (
+            <HabitForm
+              onCancel={habitPostingStopHandler}
+              onHabitPosted={habitPostingStopHandler}
             />
-          );
-        })}
+          )}
+        </p>
+        <Container>
+          <Row>
+            {habits
+              .sort((a, b) => {
+                return a.id - b.id;
+              })
+              .map((habit) => {
+                return (
+                  <Breadcrumb>
+                    <Habit
+                      key={habit.id}
+                      id={habit.id}
+                      name={habit.name}
+                      consecutiveDays={habit.consecutiveDays}
+                    />
+                  </Breadcrumb>
+                );
+              })}
+          </Row>
+        </Container>
+      </Container>
     </div>
   );
 };
