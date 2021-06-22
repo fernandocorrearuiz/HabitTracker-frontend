@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { deleteMyGoal } from "../store/goals/actions";

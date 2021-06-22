@@ -4,7 +4,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage,
 } from "../appState/actions";
 
 import { selectUser } from "../user/selectors";
@@ -26,18 +25,19 @@ export const fetchWeights = () => {
   return async (dispatch, getState) => {
     try {
       const { token } = selectUser(getState());
-      // const offset = getState().weights.length;
-      // console.log(offset);
-      // const offset = 2;
-      // const response = await axios.get(
-      //   `${apiUrl}/weights?offset=${offset}&limit=5`
-      // );
-      // const response = await axios.get(`${apiUrl}/weights?offset=0&limit=5`);
-      const response = await axios.get(`${apiUrl}/weights`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const offset =
+        getState().weights.length === (undefined || null)
+          ? 0
+          : getState().weights.length;
+      const limit = 5;
+      const response = await axios.get(
+        `${apiUrl}/weights?offset=${offset}&limit=${limit}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       // console.log(response.data);
       dispatch(fetchWeightsSuccess(response.data.weights));
     } catch (e) {

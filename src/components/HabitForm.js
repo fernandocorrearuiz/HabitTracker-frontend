@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Form,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import { postMyNewHabit } from "../store/habits/actions";
 

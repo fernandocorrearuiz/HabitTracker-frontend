@@ -4,7 +4,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage,
 } from "../appState/actions";
 
 import { selectUser } from "../user/selectors";
@@ -77,7 +76,7 @@ export const daysResetHabit = (habitId) => {
 
 export const deleteMyHabit = (habitId) => {
   return async (dispatch, getState) => {
-    const response = await axios.delete(`${apiUrl}/habits/${habitId}`);
+    await axios.delete(`${apiUrl}/habits/${habitId}`);
     // console.log("Habit deleted?", response.data);
     dispatch(habitDeleteSuccess(habitId));
   };

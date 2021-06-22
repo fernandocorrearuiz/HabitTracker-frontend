@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Form,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Breadcrumb, Card, Container, Form } from "react-bootstrap";
 
-// import { selectLatestWeight } from "../store/weights/selectors";
+import { selectLatestWeight } from "../store/weights/selectors";
 import { postMyNewWeight } from "../store/weights/actions";
 
 const WeightInput = (props) => {
-  // const latestWeight = useSelector(selectLatestWeight);
-  // console.log(latestWeight);
+  const latestWeight = useSelector(selectLatestWeight);
+  console.log(latestWeight);
+
+  // if (latestWeight.Kg === (null || undefined)) {
+  //   return null;
+  // } else {
+  //   console.log(latestWeight.Kg);
+  // }}
+
   const [enteredKg, setEnteredKg] = useState(80);
 
   const dispatch = useDispatch();

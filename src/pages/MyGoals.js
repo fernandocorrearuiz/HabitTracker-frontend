@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Breadcrumb, Container, Jumbotron } from "react-bootstrap";
 
 import Goal from "../components/Goal";
 import GoalForm from "../components/GoalForm";

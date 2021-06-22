@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { Button, Form } from "react-bootstrap";
+
+import LearnLanguage from "./LearnLanguage";
+
 import { postMyNewGoal } from "../store/goals/actions";
 
 const GoalForm = (props) => {
@@ -44,9 +48,11 @@ const GoalForm = (props) => {
     setEnteredCurrentLevel("");
   };
 
+  console.log(enteredCurrentLevel);
+
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler}>
         <select value={enteredTitle} onChange={titleChangeHandler}>
           <option defaultValue>Select a new goal...</option>
           <option value="Learn a new language">Learn a new language</option>
@@ -59,11 +65,21 @@ const GoalForm = (props) => {
             Develop my personal project
           </option>
         </select>
-        <button type="button" onClick={props.onCancel}>
+
+        {enteredTitle === "Learn a new language" ? (
+          <LearnLanguage
+            currentLevel={enteredCurrentLevel}
+            objective={enteredObjective}
+          />
+        ) : (
+          console.log("No")
+        )}
+
+        <Button type="button" onClick={props.onCancel}>
           Cancel
-        </button>
-        <button type="submit">Create</button>
-      </form>
+        </Button>
+        <Button type="submit">Create</Button>
+      </Form>
       {/* <form onSubmit={submitHandler}>
         <label>Title:</label>
         <input type="text" value={enteredTitle} onChange={titleChangeHandler} />

@@ -1,15 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
-import {
-  Alert,
-  Button,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 
 const HomePage = () => {
   return (
@@ -49,7 +40,7 @@ const HomePage = () => {
         <Row>
           <Col>
             <Card>
-              <div class="card" style={{ width: "18rem;" }}>
+              <div class="card" style={{ width: "18rem" }}>
                 <img
                   class="card-img-top"
                   src="https://onlineprostate.physio/wp-content/uploads/2020/03/Habits.jpg"
@@ -73,7 +64,7 @@ const HomePage = () => {
           </Col>
           <Col>
             <Card>
-              <div class="card">
+              <div class="card" style={{ width: "18rem" }}>
                 <img
                   class="card-img-top"
                   src="https://i0.wp.com/www.additudemag.com/wp-content/uploads/2016/11/Adult_Health_Weight-loss-tips-for-ADHD-adults_Article_5700_help-weight-scale_493537392-3.jpg?resize=1280%2C720px&ssl=1"
@@ -100,7 +91,7 @@ const HomePage = () => {
         <Row>
           <Col>
             <Card>
-              <div class="card" style={{ width: "18rem;" }}>
+              <div class="card" style={{ width: "18rem" }}>
                 <img
                   class="card-img-top"
                   src="https://freshhh.nl/app/uploads/2020/01/dane-wetton-lBpmXaNQOCM-unsplash-1.jpg"
@@ -121,7 +112,7 @@ const HomePage = () => {
           </Col>
           <Col>
             <Card>
-              <div class="card">
+              <div class="card" style={{ width: "18rem" }}>
                 <img
                   class="card-img-top"
                   src="https://www.indoindians.com/wp-content/uploads/2020/03/smart-goals-copy.jpg"

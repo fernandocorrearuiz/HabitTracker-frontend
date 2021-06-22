@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import useSound from "use-sound";
 
+import sound from "../sounds/2019-04-06_-_Deep_Meditation_-_David_Fesliyan.mp3";
 import "./Yoga.css";
 import { Jumbotron } from "react-bootstrap";
 
 const Yoga = () => {
+  const [play, { stop }] = useSound(sound);
+
   const [second, setSecond] = useState("00");
   const [minute, setMinute] = useState("00");
   const [isActive, setIsActive] = useState(false);
@@ -61,10 +64,22 @@ const Yoga = () => {
           <span className="second">{second}</span>
         </div>
         <div className="buttons">
-          <button onClick={() => setIsActive(!isActive)} className="start">
+          <button
+            onClick={() => {
+              setIsActive(!isActive);
+              isActive === false ? play() : stop();
+            }}
+            className="start"
+          >
             {isActive ? "Pause" : "Start"}
           </button>
-          <button onClick={stopTimer} className="reset">
+          <button
+            onClick={() => {
+              stop();
+              stopTimer();
+            }}
+            className="reset"
+          >
             Reset
           </button>
         </div>

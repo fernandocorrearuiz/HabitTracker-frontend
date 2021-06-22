@@ -1,16 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Card, Container, Jumbotron } from "react-bootstrap";
 
 import { fetchWeights } from "../store/weights/actions";
 import { selectWeights } from "../store/weights/selectors";
@@ -20,6 +11,11 @@ import WeightInput from "../components/WeightInput";
 const MyWeight = () => {
   const dispatch = useDispatch();
   const weights = useSelector(selectWeights);
+
+  const formatDate = (date) => {
+    let formattedDate = date.split("T")[0];
+    return formattedDate;
+  };
 
   useEffect(() => {
     dispatch(fetchWeights());
@@ -38,21 +34,25 @@ const MyWeight = () => {
       <Container>
         <WeightInput />
 
-        <Card>My latest Weight</Card>
+        <Card>
+          <h1>My latest Weight</h1>
+        </Card>
+
         {weights
-          .sort((a, b) => {
-            return a.date - b.date;
-          })
+          // .sort((a, b) => {
+          //   return a.createdAt - b.createdAt;
+          // })
           .map((weight) => {
             return (
               <Weight
                 key={weight.id}
                 id={weight.id}
                 Kg={weight.Kg}
-                date={weight.date}
+                date={formatDate(weight.date)}
               />
             );
           })}
+        <Button onClick={() => dispatch(fetchWeights())}>See Previous</Button>
       </Container>
     </div>
   );

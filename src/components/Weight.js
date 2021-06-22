@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Breadcrumb } from "react-bootstrap";
 
 export default function Weight(props) {
   return (

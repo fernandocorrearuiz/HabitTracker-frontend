@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Alert,
-  Button,
-  Breadcrumb,
-  Card,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-} from "react-bootstrap";
+import { Button, Breadcrumb, Container, Row, Jumbotron } from "react-bootstrap";
 
 import Habit from "../components/Habit";
 import HabitForm from "../components/HabitForm";

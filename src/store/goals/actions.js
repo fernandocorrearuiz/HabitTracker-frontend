@@ -4,7 +4,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage,
 } from "../appState/actions";
 
 import { selectUser } from "../user/selectors";
@@ -47,7 +46,7 @@ export const fetchGoals = () => {
 
 export const deleteMyGoal = (goalId) => {
   return async (dispatch, getState) => {
-    const response = await axios.delete(`${apiUrl}/goals/${goalId}`);
+    await axios.delete(`${apiUrl}/goals/${goalId}`);
     // console.log("Goal deleted?", response.data);
     dispatch(goalDeleteSuccess(goalId));
   };

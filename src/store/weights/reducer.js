@@ -6,14 +6,10 @@ const initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_WEIGHTS_SUCCESS:
-      return [...action.payload].sort((a, b) => {
-        return b.date - a.date;
-      });
+      return [...state, ...action.payload];
 
     case WEIGHT_CREATED_SUCCESS:
-      return [...state, action.payload].sort((a, b) => {
-        return a.id - b.id;
-      });
+      return [action.payload, ...state];
     default:
       return state;
   }
