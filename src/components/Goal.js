@@ -1,5 +1,14 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { deleteMyGoal } from "../store/goals/actions";
@@ -13,15 +22,14 @@ export default function Goal(props) {
 
   return (
     <div>
-      <p>Goal #: {props.id}</p>
-      <p>Title: {props.title}</p>
-      <p>Objective: {props.objective}</p>
-      <p>Current Level: {props.currentLevel}</p>
-      <p>
-        <Button onClick={goalDeleteHandler}>Delete goal</Button>
-      </p>
-
-      <p>{"---"}</p>
+      <Container>
+        <p>{props.title}</p>
+        <p>Objective: {props.objective}</p>
+        <p>Current Level: {props.currentLevel}</p>
+        <p>
+          <Button onClick={goalDeleteHandler}>Delete goal</Button>
+        </p>
+      </Container>
     </div>
   );
 }

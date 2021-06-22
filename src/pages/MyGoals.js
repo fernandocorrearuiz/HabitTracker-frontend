@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "react-bootstrap/Button";
-import { Jumbotron } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Breadcrumb,
+  Card,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
 
 import Goal from "../components/Goal";
 import GoalForm from "../components/GoalForm";
@@ -27,37 +35,46 @@ const MyGoals = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url("https://get.pxhere.com/photo/food-balance-rest-stack-chocolate-baking-cookie-close-macaroon-dessert-zen-motivation-stones-relaxation-meditation-icing-still-sweetness-baked-goods-flavor-stone-pile-snack-food-cookies-and-crackers-645898.jpg")`,
+      }}
+    >
       <Jumbotron>
         <h1>My Goals</h1>
       </Jumbotron>
-      <h1>Here you can find your goals!</h1>
-      <p>
-        {!isPosting && (
-          <Button onClick={goalPostingStartHandler}>Create a new Goal</Button>
-        )}
-        {isPosting && (
-          <GoalForm
-            onCancel={goalPostingStopHandler}
-            onGoalPosted={goalPostingStopHandler}
-          />
-        )}
-      </p>
-      {goals
-        .sort((a, b) => {
-          return a.id - b.id;
-        })
-        .map((goal) => {
-          return (
-            <Goal
-              key={goal.id}
-              id={goal.id}
-              title={goal.title}
-              objective={goal.objective}
-              currentLevel={goal.currentLevel}
+      <Container>
+        <p>
+          {!isPosting && (
+            <Button onClick={goalPostingStartHandler}>Create a new Goal</Button>
+          )}
+          {isPosting && (
+            <GoalForm
+              onCancel={goalPostingStopHandler}
+              onGoalPosted={goalPostingStopHandler}
             />
-          );
-        })}
+          )}
+        </p>
+        <Container>
+          {goals
+            .sort((a, b) => {
+              return a.id - b.id;
+            })
+            .map((goal) => {
+              return (
+                <Breadcrumb>
+                  <Goal
+                    key={goal.id}
+                    id={goal.id}
+                    title={goal.title}
+                    objective={goal.objective}
+                    currentLevel={goal.currentLevel}
+                  />
+                </Breadcrumb>
+              );
+            })}
+        </Container>
+      </Container>
     </div>
   );
 };
