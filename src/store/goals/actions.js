@@ -11,6 +11,7 @@ import { selectUser } from "../user/selectors";
 export const FETCH_GOALS_SUCCESS = "FETCH_GOALS_SUCCESS";
 export const GOAL_DELETE_SUCCESS = "GOAL_DELETE_SUCCESS";
 export const GOAL_CREATED_SUCCESS = "GOAL_CREATED_SUCCESS";
+export const GOAL_UPDATED_SUCCESS = "GOAL_UPDATED_SUCCESS";
 
 export const fetchGoalsSuccess = (goals) => ({
   type: FETCH_GOALS_SUCCESS,
@@ -25,6 +26,11 @@ export const goalDeleteSuccess = (goalId) => ({
 export const goalPostSuccess = (goalToPost) => ({
   type: GOAL_CREATED_SUCCESS,
   payload: goalToPost,
+});
+
+export const goalUpdated = (goal) => ({
+  type: GOAL_UPDATED_SUCCESS,
+  payload: goal,
 });
 
 export const fetchGoals = () => {
@@ -71,5 +77,17 @@ export const postMyNewGoal = (title, objective, currentLevel) => {
     // console.log("Yep!", response.data);
     dispatch(goalPostSuccess(response.data.newGoal));
     dispatch(appDoneLoading());
+  };
+};
+
+export const updateMyGoal = (goalId, currentLevel, objective) => {
+  return async (dispatch, getState) => {
+    // console.log(goalId, currentLevel, objective);
+    const response = await axios.patch(`${apiUrl}/goals/${goalId}`, {
+      currentLevel,
+      objective,
+    });
+    // console.log(response.data);
+    dispatch(goalUpdated(response.data.goal));
   };
 };

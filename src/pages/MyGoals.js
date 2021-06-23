@@ -28,14 +28,14 @@ const MyGoals = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("https://get.pxhere.com/photo/food-balance-rest-stack-chocolate-baking-cookie-close-macaroon-dessert-zen-motivation-stones-relaxation-meditation-icing-still-sweetness-baked-goods-flavor-stone-pile-snack-food-cookies-and-crackers-645898.jpg")`,
+        backgroundImage: `url("https://www.mandarinstone.com/app/uploads/2018/03/Fusion-Light-Grey-Matt-Porcelain-1a-1400x1400.jpg")`,
       }}
     >
       <Jumbotron>
         <h1>My Goals</h1>
       </Jumbotron>
       <Container>
-        <p>
+        <div>
           {!isPosting && (
             <Button onClick={goalPostingStartHandler}>Create a new Goal</Button>
           )}
@@ -45,7 +45,7 @@ const MyGoals = () => {
               onGoalPosted={goalPostingStopHandler}
             />
           )}
-        </p>
+        </div>
         <Container>
           {goals
             .sort((a, b) => {
@@ -53,9 +53,8 @@ const MyGoals = () => {
             })
             .map((goal) => {
               return (
-                <Breadcrumb>
+                <Breadcrumb key={goal.id}>
                   <Goal
-                    key={goal.id}
                     id={goal.id}
                     title={goal.title}
                     objective={goal.objective}

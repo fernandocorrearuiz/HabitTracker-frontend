@@ -1,6 +1,6 @@
 import React from "react";
 
-const LearnLanguage = (props) => {
+const LoseBodyFat = (props) => {
   const objectiveChangeHandler = (event) => {
     props.setObjective(event.target.value);
   };
@@ -13,25 +13,23 @@ const LearnLanguage = (props) => {
     <div>
       <select value={props.currentLevel} onChange={currentLevelChangeHandler}>
         <option defaultValue>Select your current level</option>
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-        <option value="C2">C2</option>
+        <option value="3-10%">3-10%</option>
+        <option value="10-20%">10-20%</option>
+        <option value="20-30%">20-30%</option>
+        <option value="30-40%">30-40%</option>
+        <option value="More than 40%">More than 40%</option>
       </select>
 
       <select value={props.objective} onChange={objectiveChangeHandler}>
         <option defaultValue>Select your objective</option>
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-        <option value="C2">C2</option>
+        <option value="3-5%">3-5%</option>
+        <option value="6-10%">6-10%</option>
+        <option value="10-15%">10-15%</option>
+        <option value="15-20%">15-20%</option>
+        <option value="20-25%">20-25%</option>
       </select>
     </div>
   );
 };
 
-export default LearnLanguage;
+export default LoseBodyFat;

@@ -2,6 +2,7 @@ import {
   FETCH_GOALS_SUCCESS,
   GOAL_DELETE_SUCCESS,
   GOAL_CREATED_SUCCESS,
+  GOAL_UPDATED_SUCCESS,
 } from "./actions";
 
 const initialState = [];
@@ -23,6 +24,17 @@ export default (state = initialState, action) => {
       return [...state, action.payload].sort((a, b) => {
         return a.id - b.id;
       });
+
+    case GOAL_UPDATED_SUCCESS:
+      const previousState = state.filter(
+        (goal) => goal.id !== action.payload.id
+      );
+      const sortedPreviousState = [...previousState, action.payload].sort(
+        (a, b) => {
+          return a.id - b.id;
+        }
+      );
+      return sortedPreviousState;
 
     default:
       return state;

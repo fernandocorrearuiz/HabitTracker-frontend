@@ -1,6 +1,6 @@
 import React from "react";
 
-const LearnLanguage = (props) => {
+const ObtainEducation = (props) => {
   const objectiveChangeHandler = (event) => {
     props.setObjective(event.target.value);
   };
@@ -13,25 +13,21 @@ const LearnLanguage = (props) => {
     <div>
       <select value={props.currentLevel} onChange={currentLevelChangeHandler}>
         <option defaultValue>Select your current level</option>
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-        <option value="C2">C2</option>
+        <option value="Amateur">Amateur</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Professional">Professional</option>
       </select>
 
       <select value={props.objective} onChange={objectiveChangeHandler}>
         <option defaultValue>Select your objective</option>
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-        <option value="C2">C2</option>
+        <option value="Amateur">Amateur</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Professional">Professional</option>
       </select>
     </div>
   );
 };
 
-export default LearnLanguage;
+export default ObtainEducation;

@@ -10,46 +10,33 @@ import LoseBodyFat from "./LoseBodyFat";
 import ObtainEducation from "./ObtainEducation";
 import DevelopProject from "./DevelopProject";
 
-import { postMyNewGoal } from "../store/goals/actions";
+import { updateMyGoal } from "../store/goals/actions";
 
-const GoalForm = (props) => {
-  const [enteredTitle, setEnteredTitle] = useState("");
+const GoalEdit = (props) => {
   const [enteredObjective, setEnteredObjective] = useState("");
   const [enteredCurrentLevel, setEnteredCurrentLevel] = useState("");
 
   const dispatch = useDispatch();
 
-  const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log("updateee");
 
     if (
-      enteredTitle === "Select a new goal..." ||
-      !enteredTitle ||
-      !enteredObjective ||
-      !enteredCurrentLevel
+      enteredObjective === "Select your objective" ||
+      enteredCurrentLevel === "Select your current level"
     ) {
       return null;
     }
 
-    dispatch(
-      postMyNewGoal(enteredTitle, enteredObjective, enteredCurrentLevel)
-    );
+    dispatch(updateMyGoal(props.id, enteredCurrentLevel, enteredObjective));
 
-    props.onGoalPosted();
-    setEnteredTitle("");
-    setEnteredObjective("");
-    setEnteredCurrentLevel("");
+    //   props.onHabitPosted();
+    //   setEnteredName("");
   };
 
-  // console.log(enteredCurrentLevel);
-  // console.log(enteredObjective);
-
   let toRender;
-  switch (enteredTitle) {
+  switch (props.title) {
     case "Learn a new language":
       toRender = (
         <LearnLanguage
@@ -108,29 +95,22 @@ const GoalForm = (props) => {
 
   return (
     <div>
-      <Form onSubmit={submitHandler}>
-        <select value={enteredTitle} onChange={titleChangeHandler}>
-          <option defaultValue>Select a new goal...</option>
-          <option value="Learn a new language">Learn a new language</option>
-          <option value="Lose Weight">Lose Weight</option>
-          <option value="Lose Body Fat %">Lose Body Fat %</option>
-          <option value="Obtain an education skill">
-            Obtain an education skill
-          </option>
-          <option value="Develop my personal project">
-            Develop my personal project
-          </option>
-        </select>
+      {toRender}
 
-        {toRender}
-
-        <Button type="button" onClick={props.onCancel}>
-          Cancel
-        </Button>
-        <Button type="submit">Create</Button>
-      </Form>
+      <Button type="button" onClick={props.onCancel}>
+        Cancel
+      </Button>
+      <Button
+        type="submit"
+        onClick={(event) => {
+          props.onGoalUpdated();
+          submitHandler(event);
+        }}
+      >
+        Update
+      </Button>
     </div>
   );
 };
 
-export default GoalForm;
+export default GoalEdit;

@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("https://previews.123rf.com/images/foreverrich/foreverrich1806/foreverrich180600156/103607842-white-and-blue-soft-color-concrete-texture-background.jpg")`,
+        backgroundImage: `url("https://www.mandarinstone.com/app/uploads/2018/03/Fusion-Light-Grey-Matt-Porcelain-1a-1400x1400.jpg")`,
       }}
     >
       <Container>
