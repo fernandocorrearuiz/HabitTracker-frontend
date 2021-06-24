@@ -30,9 +30,6 @@ const GoalEdit = (props) => {
     }
 
     dispatch(updateMyGoal(props.id, enteredCurrentLevel, enteredObjective));
-
-    //   props.onHabitPosted();
-    //   setEnteredName("");
   };
 
   let toRender;

@@ -32,26 +32,31 @@ const MyWeight = () => {
       </Jumbotron>
 
       <Container>
-        <WeightInput />
+        <WeightInput
+          date1={weights[0]?.date}
+          date2={weights[1]?.date}
+          date3={weights[2]?.date}
+          date4={weights[3]?.date}
+          weight1={weights[0]?.Kg}
+          weight2={weights[1]?.Kg}
+          weight3={weights[2]?.Kg}
+          weight4={weights[3]?.Kg}
+        />
 
         <Card>
           <h1>My latest Weight</h1>
         </Card>
 
-        {weights
-          // .sort((a, b) => {
-          //   return a.createdAt - b.createdAt;
-          // })
-          .map((weight) => {
-            return (
-              <Weight
-                key={weight.id}
-                id={weight.id}
-                Kg={weight.Kg}
-                date={formatDate(weight.date)}
-              />
-            );
-          })}
+        {weights.map((weight) => {
+          return (
+            <Weight
+              key={weight.id}
+              id={weight.id}
+              Kg={weight.Kg}
+              date={formatDate(weight.date)}
+            />
+          );
+        })}
         <Button onClick={() => dispatch(fetchWeights())}>See Previous</Button>
       </Container>
     </div>
