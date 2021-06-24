@@ -3,16 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Button, Breadcrumb, Card, Container, Form } from "react-bootstrap";
 
-import { selectLatestWeight } from "../store/weights/selectors";
 import { postMyNewWeight } from "../store/weights/actions";
 
 import GraphLine from "./GraphLine";
 
 const WeightInput = (props) => {
-  const latestWeight = useSelector(selectLatestWeight);
-  // console.log("latestWeight", latestWeight);
-
-  const [enteredKg, setEnteredKg] = useState("");
+  const [enteredKg, setEnteredKg] = useState(80);
 
   const dispatch = useDispatch();
 
@@ -41,22 +37,20 @@ const WeightInput = (props) => {
         />
         <Card>
           <Breadcrumb>
-            {!latestWeight ? (
-              "loading"
-            ) : (
-              <Form onSubmit={submitHandler}>
-                <Form.Label>Register your weight:</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={latestWeight.Kg}
-                  step={0.1}
-                  min={45.1}
-                  max={300}
-                  onChange={KgChangeHandler}
-                />
-                <Button type="submit">Register</Button>
-              </Form>
-            )}
+            <Form onSubmit={submitHandler}>
+              <Form.Label>Register your weight:</Form.Label>
+
+              <Form.Control
+                type="number"
+                value={enteredKg}
+                step={0.1}
+                min={45.1}
+                max={300}
+                onChange={KgChangeHandler}
+              />
+
+              <Button type="submit">Register</Button>
+            </Form>
           </Breadcrumb>
         </Card>
       </Container>

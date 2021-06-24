@@ -27,12 +27,13 @@ export default function Habit(props) {
         <Breadcrumb>
           <Breadcrumb.Item>{props.name}</Breadcrumb.Item>
           <Breadcrumb.Item>
-            Consecutive Days: {props.consecutiveDays}
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
             <Button onClick={habitDeleteHandler}>Delete habit</Button>
           </Breadcrumb.Item>
         </Breadcrumb>
+
+        <Alert variant="primary">
+          Consecutive Days: {props.consecutiveDays}
+        </Alert>
 
         <img
           src={

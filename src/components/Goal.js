@@ -1,5 +1,6 @@
+/* eslint-disable default-case */
 import React, { useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, ProgressBar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import GoalEdit from "./GoalEdit";
@@ -20,6 +21,32 @@ export default function Goal(props) {
   const goalUpdateStopHandler = () => {
     setIsEditing(false);
   };
+
+  let toRender;
+  switch (props.title) {
+    case "Learn a new language":
+      toRender = 2;
+      break;
+
+    case "Lose Weight":
+      toRender = 3;
+      break;
+
+    case "Lose Body Fat %":
+      toRender = 3;
+      break;
+
+    case "Obtain an education skill":
+      toRender = 5;
+      break;
+
+    case "Develop my personal project":
+      toRender = 1;
+      break;
+  }
+
+  const now = 100;
+  const message = `You should practice at least ${toRender} times per week to reach your objective`;
 
   return (
     <div>
@@ -42,6 +69,7 @@ export default function Goal(props) {
             />
           )}
         </p>
+        <ProgressBar variant="success" now={now} label={`${message}`} />
       </Container>
     </div>
   );

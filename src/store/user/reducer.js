@@ -4,6 +4,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  weights: [],
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
