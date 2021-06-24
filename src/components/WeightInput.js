@@ -4,13 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Breadcrumb, Card, Container, Form } from "react-bootstrap";
 
 import { postMyNewWeight } from "../store/weights/actions";
+import { fetchLatestWeight } from "../store/latestWeight/actions";
+import { selectLatestWeight } from "../store/latestWeight/selectors";
 
 import GraphLine from "./GraphLine";
 
 const WeightInput = (props) => {
-  const [enteredKg, setEnteredKg] = useState(80);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchLatestWeight());
+  }, [dispatch]);
+
+  const latestWeight = useSelector(selectLatestWeight);
+  console.log("latestWeight", latestWeight);
+
+  const [enteredKg, setEnteredKg] = useState(latestWeight);
 
   const KgChangeHandler = (event) => {
     setEnteredKg(event.target.value);
