@@ -33,12 +33,12 @@ After three very intense months of learning full stack web development at Codais
 - Bootstrap (Styling)
 
 # User stories:
-Feature 1. I want users to see a HomePage which contains the main features of the App.
-Feature 2. As a user, I want to be able to track my habits to register whether I have complied or not with it today.
-Feature 3. As a user, I want to be able to create a new habit.
-Feature 4. As a user, I want to register and track my weight to see if I am losing or gaining it throughout the days.
-Feature 5. As a user, I want to practice Yoga for more or less minutes depending on my mood.
-Feature 6. As a user, I want to keep track of my skills goals to see if I am improving with the time or not.
+- Feature 1. I want users to see a HomePage which contains the main features of the App.
+- Feature 2. As a user, I want to be able to track my habits to register whether I have complied or not with it today.
+- Feature 3. As a user, I want to be able to create a new habit.
+- Feature 4. As a user, I want to register and track my weight to see if I am losing or gaining it throughout the days.
+- Feature 5. As a user, I want to practice Yoga for more or less minutes depending on my mood.
+- Feature 6. As a user, I want to keep track of my skills goals to see if I am improving with the time or not.
 
 # Backend repo:
 Click here to see the [Backend Repository](https://github.com/fernandocorrearuiz/HabitTracker-backend)
