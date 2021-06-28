@@ -4,8 +4,8 @@ How many times have you thought about that new skill that you wanted to achieve 
 Habit Tracker is the perfect tool to create new goals and habits and keep track of your daily progress and achievements. It works also as a Health App, thanks to its Weight Control and the Yoga Sessions helper.
 
 If you'd like to play around with the app, you can sign up or login with:
-          email: alex@email.com
-          password: alex
+          - email: alex@email.com
+          - password: alex
 
 # Pages overview:
 1- A Login/Sign Up page where the users can Login or Sign Up.
