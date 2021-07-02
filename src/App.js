@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
@@ -8,6 +9,7 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import OpeningPage from "./pages/OpeningPage";
 import HomePage from "./pages/HomePage";
 import MyHabits from "./pages/MyHabits";
 import MyWeight from "./pages/MyWeight";
@@ -32,7 +34,8 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={OpeningPage} />
+        <Route exact path="/home" component={HomePage} />
         <Route path="/my-habits" component={MyHabits} />
         <Route path="/my-weight" component={MyWeight} />
         <Route path="/yoga" component={Yoga} />

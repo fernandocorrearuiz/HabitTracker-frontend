@@ -29,9 +29,6 @@ const MyWeight = () => {
     >
       <Jumbotron>
         <h1>My Weight</h1>
-      </Jumbotron>
-
-      <Container>
         <WeightInput
           date1={weights[0]?.date}
           date2={weights[1]?.date}
@@ -42,7 +39,9 @@ const MyWeight = () => {
           weight3={weights[2]?.Kg}
           weight4={weights[3]?.Kg}
         />
+      </Jumbotron>
 
+      <Container>
         <Card>
           <h1>My latest Weight</h1>
         </Card>

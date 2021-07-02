@@ -17,9 +17,9 @@ const WeightInput = (props) => {
   }, [dispatch]);
 
   const latestWeight = useSelector(selectLatestWeight);
-  console.log("latestWeight", latestWeight);
+  // console.log("latestWeight", latestWeight);
 
-  const [enteredKg, setEnteredKg] = useState(latestWeight);
+  const [enteredKg, setEnteredKg] = useState("");
 
   const KgChangeHandler = (event) => {
     setEnteredKg(event.target.value);
@@ -55,6 +55,7 @@ const WeightInput = (props) => {
                 step={0.1}
                 min={45.1}
                 max={300}
+                placeholder={`Latest: ${latestWeight.Kg} kg`}
                 onChange={KgChangeHandler}
               />
 

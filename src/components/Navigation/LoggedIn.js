@@ -18,7 +18,7 @@ export default function LoggedIn() {
       <NavbarItem path="/yoga" linkText="Yoga" />
       <NavbarItem path="/my-goals" linkText="Goals" /> */}
       <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item>
-      <Link to="/login">
+      <Link to="/">
         <Button
           onClick={() => {
             dispatch(logOut());

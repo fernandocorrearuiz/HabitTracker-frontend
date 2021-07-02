@@ -33,8 +33,6 @@ const MyGoals = () => {
     >
       <Jumbotron>
         <h1>My Goals</h1>
-      </Jumbotron>
-      <Container>
         <div>
           {!isPosting && (
             <Button onClick={goalPostingStartHandler}>Create a new Goal</Button>
@@ -46,24 +44,25 @@ const MyGoals = () => {
             />
           )}
         </div>
-        <Container>
-          {goals
-            .sort((a, b) => {
-              return a.id - b.id;
-            })
-            .map((goal) => {
-              return (
-                <Breadcrumb key={goal.id}>
-                  <Goal
-                    id={goal.id}
-                    title={goal.title}
-                    objective={goal.objective}
-                    currentLevel={goal.currentLevel}
-                  />
-                </Breadcrumb>
-              );
-            })}
-        </Container>
+      </Jumbotron>
+
+      <Container>
+        {goals
+          .sort((a, b) => {
+            return a.id - b.id;
+          })
+          .map((goal) => {
+            return (
+              <Breadcrumb key={goal.id}>
+                <Goal
+                  id={goal.id}
+                  title={goal.title}
+                  objective={goal.objective}
+                  currentLevel={goal.currentLevel}
+                />
+              </Breadcrumb>
+            );
+          })}
       </Container>
     </div>
   );

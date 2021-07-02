@@ -33,8 +33,6 @@ const MyHabits = () => {
     >
       <Jumbotron>
         <h1>My Habits</h1>
-      </Jumbotron>
-      <Container>
         <p>
           {!isPosting && (
             <Button onClick={habitPostingStartHandler}>
@@ -48,26 +46,27 @@ const MyHabits = () => {
             />
           )}
         </p>
-        <Container>
-          <Row>
-            {habits
-              .sort((a, b) => {
-                return a.id - b.id;
-              })
-              .map((habit) => {
-                return (
-                  <Breadcrumb>
-                    <Habit
-                      key={habit.id}
-                      id={habit.id}
-                      name={habit.name}
-                      consecutiveDays={habit.consecutiveDays}
-                    />
-                  </Breadcrumb>
-                );
-              })}
-          </Row>
-        </Container>
+      </Jumbotron>
+
+      <Container>
+        <Row>
+          {habits
+            .sort((a, b) => {
+              return a.id - b.id;
+            })
+            .map((habit) => {
+              return (
+                <Breadcrumb>
+                  <Habit
+                    key={habit.id}
+                    id={habit.id}
+                    name={habit.name}
+                    consecutiveDays={habit.consecutiveDays}
+                  />
+                </Breadcrumb>
+              );
+            })}
+        </Row>
       </Container>
     </div>
   );

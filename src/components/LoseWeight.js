@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Card } from "react-bootstrap";
-
 const LoseWeight = (props) => {
   const objectiveChangeHandler = (event) => {
     props.setObjective(event.target.value);
