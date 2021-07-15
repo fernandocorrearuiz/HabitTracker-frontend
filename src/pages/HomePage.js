@@ -29,14 +29,14 @@ const HomePage = () => {
                 with a new Habit!
               </Card.Text>
               <Button
-                href="https://the-habit-tracker-app.herokuapp.com/my-goals"
+                href="https://the-habit-tracker.netlify.app/my-goals"
                 variant="primary"
               >
                 Manage my Goals
               </Button>
               {"  "}
               <Button
-                href="https://the-habit-tracker-app.herokuapp.com/my-habits"
+                href="https://the-habit-tracker.netlify.app/my-habits"
                 variant="primary"
               >
                 Manage my Habits
@@ -57,7 +57,7 @@ const HomePage = () => {
                 in corpore sano!
               </Card.Text>
               <Button
-                href="https://the-habit-tracker-app.herokuapp.com/my-weight"
+                href="https://the-habit-tracker.netlify.app/my-weight"
                 variant="primary"
               >
                 Weight Control
@@ -78,7 +78,7 @@ const HomePage = () => {
                 stressfull lifestyle. Start now to be more enlighted!
               </Card.Text>
               <Button
-                href="https://the-habit-tracker-app.herokuapp.com/yoga"
+                href="https://the-habit-tracker.netlify.app/yoga"
                 variant="primary"
               >
                 New Session
