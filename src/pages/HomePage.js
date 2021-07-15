@@ -28,11 +28,17 @@ const HomePage = () => {
                 Set up a new Goal for the future and make it real in combination
                 with a new Habit!
               </Card.Text>
-              <Button href="http://localhost:3000/my-goals" variant="primary">
+              <Button
+                href="https://the-habit-tracker-app.herokuapp.com/my-goals"
+                variant="primary"
+              >
                 Manage my Goals
               </Button>
               {"  "}
-              <Button href="http://localhost:3000/my-habits" variant="primary">
+              <Button
+                href="https://the-habit-tracker-app.herokuapp.com/my-habits"
+                variant="primary"
+              >
                 Manage my Habits
               </Button>
             </Card.Body>
@@ -50,7 +56,10 @@ const HomePage = () => {
                 Use our Weight Control to keep track of your weight. Mens sana
                 in corpore sano!
               </Card.Text>
-              <Button href="http://localhost:3000/my-weight" variant="primary">
+              <Button
+                href="https://the-habit-tracker-app.herokuapp.com/my-weight"
+                variant="primary"
+              >
                 Weight Control
               </Button>
             </Card.Body>
@@ -68,7 +77,10 @@ const HomePage = () => {
                 Yoga is highly recommended for distressing people from a
                 stressfull lifestyle. Start now to be more enlighted!
               </Card.Text>
-              <Button href="http://localhost:3000/yoga" variant="primary">
+              <Button
+                href="https://the-habit-tracker-app.herokuapp.com/yoga"
+                variant="primary"
+              >
                 New Session
               </Button>
             </Card.Body>
